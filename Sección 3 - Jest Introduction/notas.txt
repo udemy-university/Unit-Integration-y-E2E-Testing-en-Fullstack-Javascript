@@ -1,0 +1,10 @@
+## Jest DOM
+https://github.com/testing-library/jest-dom
+
+## Jest Extended
+https://github.com/jest-community/jest-extended
+
+## Revisar flags que ofrece el cli en la documentacion
+https://jestjs.io/docs/cli
+
+npm test path/file -- --watch

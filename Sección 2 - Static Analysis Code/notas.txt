@@ -1,0 +1,1 @@
+ESLint: revisión de sintaxis de código.
