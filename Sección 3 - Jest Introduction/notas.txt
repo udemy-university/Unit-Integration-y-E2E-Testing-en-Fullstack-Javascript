@@ -8,3 +8,5 @@ https://github.com/jest-community/jest-extended
 https://jestjs.io/docs/cli
 
 npm test path/file -- --watch
+
+npm test -- --coverage (cubre todos los archivos)
