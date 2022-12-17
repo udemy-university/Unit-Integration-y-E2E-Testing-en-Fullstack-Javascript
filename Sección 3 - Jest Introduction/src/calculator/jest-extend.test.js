@@ -14,5 +14,6 @@ expect.extend({
 });
 
 test("number 2", () => {
-  expect(3).toBeEqualTwo();
+  //expect(3).toBeEqualTwo();
+  expect(2).toBeEqualTwo();
 });

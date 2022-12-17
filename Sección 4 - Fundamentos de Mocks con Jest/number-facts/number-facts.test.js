@@ -4,13 +4,14 @@ import { getRandomNumberFactService } from "./service";
 jest.mock("./service");
 
 beforeEach(() => {
-  //limpiar estado entre cada prueba.
+  //limpiar estado entre cada prueba. ("Se mantiene en memoria.")
   getRandomNumberFactService.mockClear();
 });
 
 // test.skip saltear un test.
 
 test("should return a random number fact", async () => {
+  // mockeamos lo que podemos devolver cuando no controlamos la respuesta.
   getRandomNumberFactService.mockReturnValueOnce({
     text: "139 is the year that Marcus Aurelius is named Caesar.",
   });

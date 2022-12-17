@@ -1,4 +1,4 @@
-import { getQuote } from "./";
+import { getQuoteCallback, getQuotePromiseResolve, getQuotePromiseReject } from "./";
 
 /**
  * Testeamos código asíncrono:
@@ -8,38 +8,52 @@ import { getQuote } from "./";
  * - Async Await
  */
 
-/*  Callback
-  test("getQuote", (done) => {
-    getQuote((quote) => {
+// Callback
+test("CALLBACK: getQuote", (done) => {
+  getQuoteCallback((quote) => {
+    expect(quote).toBe(
+      "No creas todo lo que leas en internet, por Benjamin Franklin"
+    );
+    done();
+  })
+});
+
+// Promises
+test("PROMISE 1 - Resolve: getQuote", () => {  
+  return getQuotePromiseResolve()
+    .then((quote) => 
       expect(quote).toBe(
         "No creas todo lo que leas en internet, por Benjamin Franklin"
-      );
-    });
-    done();
-  });
-*/
+      )
+    );
+});
 
-/* Promises
-test("getQuote", () => {  
-  // Si quiero hacer que los test fallen en el primer caso usaría el .catch
-  //  y en el segundo .rejects
+test("PROMISE 1 - Reject: getQuote", () => {  
+  return getQuotePromiseReject()
+    .catch((quote) => 
+      expect(quote).toBe(
+        "Error"
+      )
+    );
+});
 
-  // return getQuote().then((quote) =>
-  //   expect(quote).toBe(
-  //     "No creas todo lo que leas en internet, por Benjamin Franklin"
-  //   )
-  // );
-
-  return expect(getQuote()).resolves.toBe(
+test("PROMISE 2 - Resolve: getQuote", () => {  
+  return expect(getQuotePromiseResolve()).resolves.toBe(
     "No creas todo lo que leas en internet, por Benjamin Franklin"
   );
 });
-*/
 
-/* Async - Await
- */
-test("getQuote", async () => {
-  const quote = await getQuote();
+test("PROMISE 2 - Reject: getQuote", () => {  
+  return expect(getQuotePromiseReject()).rejects.toBe(
+    "Error"
+  );
+});
+
+
+// Async - Await
+
+test("ASYNC AWAIT - getQuote message", async () => {
+  const quote = await getQuotePromiseResolve();
 
   expect(quote).toBe(
     "No creas todo lo que leas en internet, por Benjamin Franklin"
