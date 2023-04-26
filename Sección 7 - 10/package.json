@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch ./__tests__/products/**.js",
+    "test": "jest --watch",
     "start:local": "nodemon ./src/server.js"
   },
   "keywords": [],
